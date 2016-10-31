@@ -1,0 +1,23 @@
+New dependency:
+<br>
+<table>
+	<tr>
+		<td valign="top">
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+    <td style="vertical-align: top">
+		<div><input placeholder="Name" type="text" [(ngModel)]="dependencyChild.shortname" (keyup)="findServerMatch()" /></div>
+		<div><input placeholder="Description" type="text" [(ngModel)]="dependencyChild.description" /></div>
+		<div><button style="float:right" (click)="saveDependency()" [disabled]="!dependencyChild && ( dependencyChild.shortname.length == 0 
+		|| dependencyChild.description.length == 0)">Save</button></div>
+		</td>
+		<td valign="top">
+			<span *ngFor="let serverMatch of searchResults">
+        <div class="clickable" style="padding: 2px" (click)="selectServer(serverMatch)">{{serverMatch.shortname}}</div>
+      </span>
+		</td>
+	</tr>
+</table>

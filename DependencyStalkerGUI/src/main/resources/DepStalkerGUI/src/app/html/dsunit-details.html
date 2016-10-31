@@ -1,0 +1,25 @@
+<dsunit *ngIf="dsUnit != null" [dsUnit]="dsUnit" [selectedCategory]="selectedCategory" [canBeFollowed]="false"></dsunit>
+	<br>
+	<div>
+		<table>
+			<tr>
+				<td style="vertical-align:top">
+				</td>
+				<td style="vertical-align:top">
+					<new-dependency [dependencyParent]="dsUnit" (onDependencySaved)="resolveDependencies()"></new-dependency>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<br>
+	<br>
+	<div>
+		<app-tabular-component [columns]="['Relying on','Needed by']" (itemClicked)="showDesiredDependencies($event)"></app-tabular-component>
+	</div>
+	<div></div>
+	<div *ngFor="let dep of dependencies">
+		<dsunit [dsUnit]="dep" [showDeleteButton]="true" (onUnitDeleted)="resolveDependencies();resolveReverseDependencies()"></dsunit>
+	</div>
+	<div [hidden]="dependencies == null || dependencies.length > 0">
+		<div class="dsunit_default_background_color">Could not find any elements</div>
+	</div>

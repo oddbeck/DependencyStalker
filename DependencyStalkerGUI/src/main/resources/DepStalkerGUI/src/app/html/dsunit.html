@@ -1,0 +1,50 @@
+<table class="dsunit_table">
+	<tr>
+		<td>
+			<div *ngIf="canBeFollowed"><strong><a class="dsunit_routerlink" routerLink='/dsunitDetails/{{dsUnit.id}}'>{{dsUnit.shortname}}</a></strong></div>
+			<div *ngIf="!canBeFollowed || !isInEditMode" (click)="showOrHideEditField(nameInput)" >
+				<div [hidden]="isInEditMode()"><strong>{{dsUnit.shortname}}</strong></div>
+				<input [hidden]="!isInEditMode()" type="text" [(ngModel)]="dsUnit.shortname" #nameInput 
+				(keyup.enter)="saveEdits()"	(blur)="onEditBlur($event)" placeholder="Unit name"/>
+			</div>
+		</td>
+		<td>
+			<span style="float:right" [hidden]="dsUnit.directDependency"><I>Indirect dependency</I></span>
+			<div [hidden]="!dsUnit.directDependency">
+				<div class="clickable tooltip tooltip-top" data-tooltip="Delete this dependency" style="float:right;" [hidden]="!showDeleteButton"
+					(click)="deleteUnitDependency(dsUnit.id)">
+					<img src="app/img/delete.ico">
+				</div>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div (click)="showOrHideEditField(descriptionInput)" [hidden]="isInEditMode()">{{dsUnit.description}}</div>
+			<input [hidden]="!isInEditMode()" type="text" [(ngModel)]="dsUnit.description" #descriptionInput (keyup.enter)="saveEdits()"
+				(blur)="onEditBlur($event)" placeholder="Unit description"/>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div><img (click)="hideCategoryInfo = !hideCategoryInfo" class="clickable" src="app/img/category.png"></div>
+			<div [hidden]="hideCategoryInfo">
+				<div>
+					<span class="dsunit_category_text_span">Category: </span> <span class="category_text">{{selectedCategory.shortname}}</span>
+					<button (click)="saveCategoryInfo()" [hidden]="hasSaved">save</button>
+				</div>
+				<span class="dsunit_category_description_span">Look up category:</span> <input style="width:150px" type="text" [(ngModel)]="searchText"
+					(keyup.enter)="showCategorySearchResults()" />
+				<ul>
+					<li *ngFor="let cat of categorySearches">
+						<span class="clickable" (click)="setSelectedCategory(cat)">{{cat.shortname}}</span>
+					</li>
+				</ul>
+			</div>
+		</td>
+		<td>
+		</td>
+	</tr>
+</table>

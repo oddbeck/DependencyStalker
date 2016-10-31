@@ -1,0 +1,12 @@
+<span class="dsunit_category_description_span">Search for item:</span> 
+<input type="text" [(ngModel)]="searchWord" (keyup.enter)="enterKeyup()" style="width:200px" placeholder="Search for items">
+<button (click)="enterKeyup()">search</button>
+<br>
+<br>
+
+  <div [hidden]="foundMatches == null || foundMatches">Found no matches</div>
+  <span *ngIf="dsUnits != null">
+  <div *ngFor="let item of dsUnits">
+    <dsunit [dsUnit]="item"></dsunit>
+  </div>
+  </span>

@@ -1,0 +1,30 @@
+Add new category:
+<table class="dscategory_table">
+	<tr>
+		<td>
+			<!--<span class="header_span">Name: </span>-->
+			<br>
+			<input type="text" style="width:250px" [(ngModel)]="dsCategory.shortname" placeholder="Category name">
+			<div></div>
+			<!--<span class="header_span">Description: </span>-->
+			<br>
+			<textarea type="text" style="width:245px; height: 120px" [(ngModel)]="dsCategory.description" placeholder="Category description"></textarea>
+			<div>
+				<br>
+				<button (click)="saveNewCategory()" [(innerText)]="buttonInnerText">Save</button>
+				<button (click)="resetForm()">Reset</button>
+				<br>
+				<br>
+				<br>
+				<div class="errorMessage">{{errorMessage}}</div>
+				<div>
+					Number of categories: {{allCategories.length}}
+                    <br><br>
+					<div *ngFor="let cat of allCategories">
+						<dscategory [dsCategory]="cat" (isSelected)="setEditableItem(cat)" (onCategoryDeleted)="loadAllCategories()"></dscategory>
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+</table>

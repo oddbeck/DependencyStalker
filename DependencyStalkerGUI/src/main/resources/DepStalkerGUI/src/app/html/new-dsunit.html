@@ -1,0 +1,16 @@
+Add new item:
+<table class="dscategory_table">
+	<tr>
+		<td>
+			<br><input type="text" style="width:250px" [(ngModel)]="dsUnit.shortname" placeholder="Unit name">
+			<br>
+			<br>
+			<textarea style="width:245px; height: 120px" [(ngModel)]="dsUnit.description" placeholder="Unit description"></textarea>
+			<div>
+				<br>
+				<button (click)="saveNewDSUnit()">Save</button>
+				<button (click)="resetDsUnit()">Reset</button>
+			</div>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,7 @@
+  <div class="dscategory"> 
+    <div (click)="wasSelected()" class="clickable" style="float:left" >
+        {{dsCategory.shortname}}</div>
+        <span (click)="deleteMe()" style="float: right" class="clickable"><img src="app/img/delete.ico"></span>
+        <span (click)="errorMessage=''" class="clickable" style="color:orangered;float: right">{{errorMessage}} &nbsp;</span>
+    <div style="padding-bottom: 10px">&nbsp;</div>    
+  </div> 

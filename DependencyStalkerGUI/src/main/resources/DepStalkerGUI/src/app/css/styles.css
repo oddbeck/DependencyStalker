@@ -1,0 +1,72 @@
+/* Master Styles */
+body {
+  font-family: "Arial", "helvetica neue","Helvetica",sans-serif;
+  margin: 2em;
+}
+
+a {
+  color: dodgerblue;
+  text-decoration: none;
+}
+.header_span {
+    /*height: 200px;*/
+    width: 90px;
+    float: left;
+    /*background-color: powderblue;*/
+}
+
+.span_width {
+  width:80px;
+  ;
+  float:left
+}
+
+button {
+  background-color: #47D; /* Green */
+  border: 3px;
+  color: white;
+  padding: 3px 3px;
+  text-align: center;
+  text-decoration: none;
+  /*display: inline-block;*/
+  font-size: 16px;
+  cursor:pointer;
+  border-radius: 4px;
+    
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 2px 2px;
+    margin: 1px 0;
+    box-sizing: border-box;
+}
+
+.errorMessage {
+  color:orangered;
+}
+
+textarea {
+   resize: none;
+}
+
+.clickable {
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                not supported by any browser */                                  
+}

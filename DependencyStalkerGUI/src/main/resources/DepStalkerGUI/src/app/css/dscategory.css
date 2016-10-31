@@ -1,0 +1,23 @@
+.dscategory {
+  background: #49F;
+  border: 0px;
+  border-bottom: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  padding: 4px;
+}
+
+
+.category_text {
+  padding: 2px;
+  color: white;
+  /*background-color: #8AA;*/
+}
+
+
+.dscategory_table {
+  width: 600px;
+  border-collapse: collapse;
+  border: 0px solid black;
+
+}

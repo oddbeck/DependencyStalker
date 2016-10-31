@@ -26,3 +26,4 @@ DependencyStalkerREST/src/main/java/no/nb/depstalkrest/conf/
 DependencyStalkerREST/src/main/resources/templates/
 **/*.log
 **/*.log.lck
+**/*-prod.yml

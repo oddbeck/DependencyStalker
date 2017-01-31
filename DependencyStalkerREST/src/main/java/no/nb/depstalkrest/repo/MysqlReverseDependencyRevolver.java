@@ -75,7 +75,12 @@ public class MysqlReverseDependencyRevolver {
 
     private List<DSUnit> getSubItems(long id) {
         String q = "select dp.id as dependencyId, d.* from DSUnit d inner join DSUnitDependencies dp on d.id = dp.unitId  where dp.dependencyId= ?";
-        List<DSUnit> subItems = jt.query(q, new BeanPropertyRowMapper<>(DSUnit.class), id);
+        List<DSUnit> subItems = null;
+        try {
+            subItems = jt.query(q, new BeanPropertyRowMapper<>(DSUnit.class), id);
+        } catch (DataAccessException e) {
+
+        }
         return subItems;
     }
 
@@ -93,8 +98,7 @@ public class MysqlReverseDependencyRevolver {
                     "SELECT "  + DIRECT_DEPENDENCY_AS_TRUE + "from DSUnit where id = ?",
                     new BeanPropertyRowMapper<>(DSUnit.class), id);
         } catch (DataAccessException e) {
-
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
         return dsUnit;
     }

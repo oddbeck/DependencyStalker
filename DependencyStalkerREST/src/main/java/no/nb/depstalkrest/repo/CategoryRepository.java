@@ -82,8 +82,13 @@ public class CategoryRepository {
     public List<DSUnitCategory> getCategoryListByName(String name) {
 
         name = name.replace("*","%");
-        List<DSUnitCategory> query = jdbcTemplate.query("SELECT id,shortname,description from DSUnitCategory where shortname like ? limit 0,25",
-                new BeanPropertyRowMapper<>(DSUnitCategory.class), name);
+        List<DSUnitCategory> query = null;
+        try {
+            query = jdbcTemplate.query("SELECT id,shortname,description from DSUnitCategory where shortname like ? limit 0,25",
+                    new BeanPropertyRowMapper<>(DSUnitCategory.class), name);
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
         return query;
     }
 

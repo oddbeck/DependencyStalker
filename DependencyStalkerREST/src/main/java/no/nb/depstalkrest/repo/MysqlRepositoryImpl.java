@@ -30,15 +30,13 @@ public class MysqlRepositoryImpl {
     public DSUnit getUnitByName(String name) {
 
         DSUnit dsUnit = null;
-        try {
             BeanPropertyRowMapper<DSUnit> dsUnitBeanPropertyRowMapper = new BeanPropertyRowMapper<>(DSUnit.class);
+        try {
             dsUnit = jt.queryForObject("SELECT" +
                     DIRECT_DEPENDENCY_AS_TRUE +
                     "from DSUnit where shortname = ? limit 0,1", new Object[] {name}, dsUnitBeanPropertyRowMapper);
         } catch (DataAccessException e) {
-            System.out.println(e.getMessage());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
         return dsUnit;
     }

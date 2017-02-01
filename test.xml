@@ -1,0 +1,7 @@
+<mavis database="NBR:MTEST" date="2016-12-05T13:32:40" 
+organisation="National Library of 
+Norway"><TitleWork><classes><WorkClass><workClass 
+xl:href="/Code/key/CLASS//FO">FO</workClass></WorkClass></classes><mediums><WorkMedium><isPrincipal>Y</isPrincipal><medium 
+xl:href="/Code/key/MEDIUM//SB">SB</medium></WorkMedium></mediums><preferredTitle><Title><description>Odd 
+Arne TEST</description><titlePurpose 
+xl:href="/Code/key/TITLE_PURPOSE//10">10</titlePurpose></Title></preferredTitle></TitleWork></mavis>

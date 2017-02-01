@@ -4,6 +4,7 @@ import no.nb.depstalkrest.model.DSDependency;
 import no.nb.depstalkrest.model.DSUnit;
 import no.nb.depstalkrest.service.DSMysqlRepoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,9 @@ import java.util.List;
 public class HomeController {
 
     public static final String CROSS_ORIGIN = "http://localhost:4200";
+
+    @Value("${server.context-path:test}")
+    private String servletConf;
 
     @Autowired
     DSMysqlRepoServiceImpl repoService;
